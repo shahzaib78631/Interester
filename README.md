@@ -7,9 +7,10 @@ Web Engineering project
 3. sql
 
 ## Technologies
-1. Editors
-2. Laragon stack
-3. SQLyog Community
+1. github
+2. Text editors
+3. Laragon stack
+4. SQLyog Community
 
 ## Components
 1. Front-end
