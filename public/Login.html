@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forms</title>
+        <link rel="stylesheet" href="LoginForm.css" type="text/css">
+        <style>
+            
+        </style>
+  
+    </head>
+    <body>
+        <div class="background">
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="login()"><label  id="labelLogin" style="color: white;">Log In</label></button>
+                    <button type="button" class="toggle-btn" onclick="register()"><label id="labelregister">Register</label></button>
+                </div>
+                <form id="login" class="input-grouup" style="left: 50px;">
+                    <input type="text" class="input-field" placeholder="Roll No" required>
+                    <input type="password" class="input-field" placeholder="Password" required>
+                    <input type="checkbox" class="check-box"><span style="margin-top: 40px;">Remember Password</span> 
+                    <button type="submit" class="submit-btn"><label  style="color: white;">Log In</label></button>
+                </form>
+                <form id="register" class="input-grouup" style="left: 550px;">
+                        <input type="text" class="input-field" placeholder="Roll No" required>
+                        <input type="email" class="input-field" placeholder="Email" required>
+                        <input type="password" class="input-field" placeholder="Password" required> 
+                        <button type="submit" class="submit-btn" style="margin-top: 25px;" ><label style="color: white;">Register</label></button>
+                </form>
+            </div>
+        </div>
+
+
+        <script>
+            var x = document.getElementById("login");
+            var y = document.getElementById("register");
+            var z = document.getElementById("btn");
+         
+
+            function register(){
+                x.style.left = "-400px";
+                y.style.left = "50px";
+                z.style.left = "110px";
+                document.getElementById("labelregister").style.color = 'white';
+                document.getElementById("labelLogin").style.color = 'black';
+            }
+            function login(){
+                x.style.left = "50px";
+                y.style.left = "450px";
+                z.style.left = "0";
+                document.getElementById("labelLogin").style.color = 'white';
+                document.getElementById("labelregister").style.color = 'black';
+            }
+           
+        </script>
+    </body>
+
+</html>
