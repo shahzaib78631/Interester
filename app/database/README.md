@@ -1,6 +1,9 @@
 SQL database queries
 ===================
 
+Queries that are used for the following db.
+--
+
 ```sql
 CREATE TABLE usr (usr_id INT AUTO_INCREMENT, PRIMARY KEY (usr_id), 
 rollnumber VARCHAR(8) NOT NULL UNIQUE, pass VARCHAR(20) NOT NULL, 
