@@ -5,8 +5,7 @@ Queries that are used for the following db.
 --
 
 ```sql
-CREATE TABLE usr (usr_id INT AUTO_INCREMENT, PRIMARY KEY (usr_id), 
-rollnumber VARCHAR(8) NOT NULL UNIQUE, pass VARCHAR(20) NOT NULL, 
+CREATE TABLE usr (usr_id INT AUTO_INCREMENT, PRIMARY KEY (usr_id),first_name VARCHAR(10), last_name VARCHAR(10), email VARCHAR(30), rollnumber VARCHAR(8) NOT NULL UNIQUE, pass VARCHAR(20) NOT NULL, 
 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -27,8 +26,6 @@ lang VARCHAR(20)
 CREATE TABLE usr_tech (usr_id INT, FOREIGN KEY (usr_id) REFERENCES usr(usr_id),
 tech VARCHAR(20)
 );
-CREATE TABLE usr_sports (usr_id INT, FOREIGN KEY (usr_id) REFERENCES usr(usr_id),
-sports VARCHAR(20)
+CREATE TABLE usr_sports (usr_id INT, FOREIGN KEY (usr_id) REFERENCES usr(usr_id), sports VARCHAR(20)
 );
-CREATE TABLE usr_profile (usr_id INT, PRIMARY KEY (usr_id), usr_name VARCHAR(30), roll_no INT UNIQUE, usr_dept VARCHAR(15), batch_no VARCHAR(5));
 ```
