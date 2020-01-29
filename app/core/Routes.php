@@ -10,6 +10,9 @@ class Routes
             case 'Error':
                 return true;
             break;
+            case 'Login':
+                return true;
+            break;
             case 'Users':
                 return false;
             break;

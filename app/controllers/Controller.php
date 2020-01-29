@@ -7,6 +7,14 @@ abstract class Controller
     protected $view = "";
     protected $head = ['title' => '', 'description' => ''];
 
+    /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+
+
+    }
 
     /**
      * Method to process the parameters

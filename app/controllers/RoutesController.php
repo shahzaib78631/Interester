@@ -26,14 +26,16 @@ class RoutesController extends Controller
          * i.e campus, faculty etc are only 
          * accessable to super admin
          */
+        
         if(Routes::isAccessible($page, $this->role)){
             //Create Controller
             
             $this->controller = $this->createControllerFor($page);
             $this->controller->process($params);
+
             $this->data['title'] = $this->controller->head['title'];
             $this->data['description'] = $this->controller->head['description'];
-
+            
             // Sets the main template
             $this->view = 'app';
         }

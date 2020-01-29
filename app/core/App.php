@@ -18,6 +18,7 @@
         $router = new RoutesController;
         $router->process($parsedURL);
         $router->renderView();
+
      }
 
     private function autoload()
