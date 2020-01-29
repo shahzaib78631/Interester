@@ -11,6 +11,7 @@ Web Engineering project
 2. Text editors
 3. Laragon stack
 4. SQLyog Community
+5. PHP server
 
 ## Components
 1. Front-end
