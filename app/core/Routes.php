@@ -13,6 +13,12 @@ class Routes
             case 'Login':
                 return true;
             break;
+            case 'Logout':
+                return true;
+            break;
+            case 'Register':
+                return true;
+            break;
             case 'Users':
                 return false;
             break;

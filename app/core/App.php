@@ -12,6 +12,9 @@
      {
         
         $this->autoload();
+
+        //For connection to database
+        Db::connect("localhost", "root", "", "interester");
         
         $parsedURL = $this->parseUrl($url);
 

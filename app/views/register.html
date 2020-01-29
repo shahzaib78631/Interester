@@ -25,20 +25,29 @@
               <!--Post data-->
               <div class="card-body card-body-cascade text-center">
                 <?php 
-                if(isset($_POST['login'])):
+                if(isset($_POST['register'])):
                 
                  echo $alert;
               
                 endif;?>
-                <form class="user" action="login" method="POST">
+                <form class="user" action="register" method="POST">
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-user" name="first-name" id="first-name" aria-describedby="emailHelp" placeholder="Enter First Name">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-user" name="last-name" id="last-name" aria-describedby="emailHelp" placeholder="Enter Last Name">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-user" name="roll-no" id="roll-no" aria-describedby="emailHelp" placeholder="Enter Roll Number">
+                  </div>
                   <div class="form-group">
                     <input type="email" class="form-control form-control-user" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password">
                   </div>
-                  <button class="btn btn-primary btn-user btn-block" name="login" id="login"> 
-                    Login
+                  <button class="btn btn-primary btn-user btn-block" name="register" id="register"> 
+                    Register
                   </button>
                 </form>
                 <hr>
