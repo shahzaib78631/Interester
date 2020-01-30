@@ -21,6 +21,7 @@ class LoginModel {
             
             if($user > 0):
                 $_SESSION['username'] = $user['first_name'] . " " . $user['last_name'];
+                $_SESSION['id'] = $user['usr_id'];
                 return true;
             else:
                 return false;

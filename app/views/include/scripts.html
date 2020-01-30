@@ -11,3 +11,12 @@
 new WOW().init();
 
 </script>
+
+
+<script>
+    var url = window.location.href;
+    var activeTab = url.substring(url.lastIndexOf("/") + 1);
+    $(".nav-item").removeClass("active");
+    $("#" + activeTab).addClass("active");
+    //$('a[href="#'+ activeTab +'"]').tab('show')
+</script>

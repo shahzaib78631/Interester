@@ -15,7 +15,7 @@ class LoginController extends Controller
                 if($loginModel->loginUser($email , $_POST['password'])){
                     $_SESSION['logged'] = true;
 
-                    $this->redirect('home');
+                    $this->redirect('dashboard');
                 }
                 else{
                     $this->data['alert'] = Dialogs::error('User not found') ;

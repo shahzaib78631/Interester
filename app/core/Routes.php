@@ -19,6 +19,12 @@ class Routes
             case 'Register':
                 return true;
             break;
+            case 'Dashboard':
+                return true;
+            break;
+            case 'Programming':
+                return true;
+            break;
             case 'Users':
                 return false;
             break;
