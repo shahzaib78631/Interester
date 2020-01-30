@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <?php include('include/head.html'); ?>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <?php include('include/navbar.html'); ?>
+
+  <!--Main Layout-->
+  <main class="vh-100">
+    <div class="main-wrapper vh-100">
+      <div class="container-fluid vh-100">
+        <div class="row vh-100">
+
+          <div class="col" style="margin-top: 5%;">
+
+            <div class="container bootstrap snippet">
+              <div class="row mt-10">
+                <div class="col-sm-3">
+                  <!--left col-->
+                  <div class="text-center">
+                    <img src="<?= $profile['image'] ?>" class="avatar img-circle img-thumbnail"
+                      alt="avatar">
+                  </div>
+                  </hr><br>
+
+                </div>
+                <!--/col-3-->
+
+                <div class="col-sm-9">
+                  <hr>
+                  <form class="form" action="dashboard" method="post" id="profile">
+                    <div class="form-group">
+
+                      <div class="col-xs-6">
+                        <label for="first_name">
+                          <h4>First name</h4>
+                        </label>
+                        <input type="text" class="form-control" name="first_name" id="first_name"
+                          placeholder="first name" title="enter your first name if any."
+                          value="<?=$profile['first_name']?>" required disabled>
+                      </div>
+                    </div>
+                    <div class="form-group">
+
+                      <div class="col-xs-6">
+                        <label for="last_name">
+                          <h4>Last name</h4>
+                        </label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name"
+                          title="enter your last name if any." value="<?=$profile['last_name']?>" required disabled>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-xs-6">
+                        <label for="email">
+                          <h4>Email</h4>
+                        </label>
+                        <input disabled type="email" class="form-control" name="email" id="email"
+                          placeholder="you@email.com" title="enter your email." value="<?=$profile['email']?>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-xs-6">
+                        <label for="phone">
+                          <h4>Roll No</h4>
+                        </label>
+                        <input disabled type="text" class="form-control" name="rollno" id="rollno"
+                          placeholder="enter your roll no" title="enter your roll no"
+                          value="<?=$profile['rollnumber']?>">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-xs-6">
+                        <label for="phone">
+                          <h4>Facebook</h4>
+                        </label>
+                        <input type="text" class="form-control" name="facebook" id="facebook"
+                          placeholder="enter facebook profile link" title="enter your facebook profile link"
+                          value="<?=$profile['fb']?>" readonly>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-xs-6">
+                        <label for="phone">
+                          <h4>LinkedIn</h4>
+                        </label>
+                        <input type="text" class="form-control" name="linkedin" id="linkedin"
+                          placeholder="enter LinkedIn profile link" title="enter your LinkedIn profile link"
+                          value="<?=$profile['linked_in']?>" readonly>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-xs-6">
+                        <label for="phone">
+                          <h4>GitHub</h4>
+                        </label>
+                        <input type="text" class="form-control" name="github" id="github"
+                          placeholder="enter GitHub profile link" title="enter your GitHub profile link"
+                          value="<?=$profile['github']?>" readonly>
+                      </div>
+                    </div>
+                  </form>
+
+                  <hr>
+                </div>
+                <!--/col-9-->
+              </div>
+              <!--/row-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <?php include('include/scripts.html'); ?>
+</body>
+
+</html>

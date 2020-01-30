@@ -22,36 +22,7 @@ SET time_zone = "+00:00";
 -- Database: `interester`
 --
 
-<<<<<<< HEAD
-
-/*Table structure for table `usr` */
-
-DROP TABLE IF EXISTS `usr`;
-
-CREATE TABLE `usr` (
-  `usr_id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(10) DEFAULT NULL,
-  `last_name` varchar(10) DEFAULT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  `rollnumber` varchar(8) NOT NULL,
-  `pass` varchar(20) NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `image` longblob,
-  PRIMARY KEY (`usr_id`),
-  UNIQUE KEY `rollnumber` (`rollnumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
-/*Data for the table `usr` */
-
-insert  into `usr`(`usr_id`,`first_name`,`last_name`,`email`,`rollnumber`,`pass`,`created_at`,`image`) values 
-(1,'Shahzaib','Ali','shahzaib78631@gmail.com','F16SW53','pakistan','2020-01-28 20:12:42',NULL),
-(2,'Waqar','Lasan','adil.cn85@gmail.com','F16SW58','12345','2020-01-29 11:57:51',NULL);
-
-
-/*Table structure for table `langs` */
-=======
 -- --------------------------------------------------------
->>>>>>> 95fae1d960db545e09aa23de4679b7d9f158b43a
 
 --
 -- Table structure for table `langs`
@@ -81,7 +52,7 @@ INSERT INTO `langs` (`id`, `name`, `logo`) VALUES
 --
 
 CREATE TABLE `languages` (
-  `p_id` int(11) DEFAULT NULL,
+  `u_id` int(11) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `proficiency` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -117,16 +88,13 @@ CREATE TABLE `social_id` (
 --
 
 CREATE TABLE `sports` (
-  `s_id` int(11) DEFAULT NULL,
+  `u_id` int(11) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `proficiency` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
-<<<<<<< HEAD
-/*Table structure for table `usr_access` */
-=======
 --
 -- Table structure for table `usr`
 --
@@ -151,7 +119,6 @@ INSERT INTO `usr` (`usr_id`, `first_name`, `last_name`, `email`, `rollnumber`, `
 (2, 'Waqar', 'Lasan', 'adil.cn85@gmail.com', 'F16SW58', '12345', '2020-01-29 11:57:51', NULL);
 
 -- --------------------------------------------------------
->>>>>>> 95fae1d960db545e09aa23de4679b7d9f158b43a
 
 --
 -- Table structure for table `usr_access`
@@ -209,7 +176,7 @@ ALTER TABLE `langs`
 -- Indexes for table `languages`
 --
 ALTER TABLE `languages`
-  ADD KEY `p_id` (`p_id`);
+  ADD KEY `u_id` (`u_id`);
 
 --
 -- Indexes for table `roles`
@@ -227,7 +194,7 @@ ALTER TABLE `social_id`
 -- Indexes for table `sports`
 --
 ALTER TABLE `sports`
-  ADD KEY `s_id` (`s_id`);
+  ADD KEY `u_id` (`u_id`);
 
 --
 -- Indexes for table `usr`
@@ -285,7 +252,7 @@ ALTER TABLE `usr`
 -- Constraints for table `languages`
 --
 ALTER TABLE `languages`
-  ADD CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `usr` (`usr_id`);
+  ADD CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `usr` (`usr_id`);
 
 --
 -- Constraints for table `social_id`
@@ -297,7 +264,7 @@ ALTER TABLE `social_id`
 -- Constraints for table `sports`
 --
 ALTER TABLE `sports`
-  ADD CONSTRAINT `sports_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `usr` (`usr_id`);
+  ADD CONSTRAINT `sports_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `usr` (`usr_id`);
 
 --
 -- Constraints for table `usr_access`

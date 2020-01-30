@@ -9,10 +9,10 @@ class StudentsController extends Controller
         if($_SESSION['logged'] == true):
             $studentsManager = new StudentsModel;
 
-            $section = $_GET['section'];
-            $value = $_GET['value'];
+            $table = $_GET['section'];
+            $value = $_GET['card'];
             
-            $this->data['students'] = $studentsManager->getStudents($section , $value);
+            $this->data['students'] = $studentsManager->getStudents($table , $value);
 
             $this->view = 'students';
         else:

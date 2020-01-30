@@ -28,6 +28,9 @@ class Routes
             case 'Students':
                 return true;
             break;
+            case 'Profile':
+                return true;
+            break;
             case 'Programming':
                 return true;
             break;
