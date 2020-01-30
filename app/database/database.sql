@@ -21,32 +21,14 @@ USE `filter-web`;
 DROP TABLE IF EXISTS `languages`;
 
 CREATE TABLE `languages` (
-  `p_id` int(11) NOT NULL AUTO_INCREMENT,
+  `p_id` int(11) DEFAULT NULL,
   `p_name` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+  `proficiency` int(1) DEFAULT NULL,
+  KEY `p_id` (`p_id`),
+  CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `usr` (`usr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `languages` */
-
-insert  into `languages`(`p_id`,`p_name`) values 
-(1,'C'),
-(2,'C++'),
-(3,'C#'),
-(4,'Java'),
-(5,'PLSQL'),
-(7,'Android (Java+XML)'),
-(8,'Android (Kotlin+XML)'),
-(9,'Android (on Flutter)'),
-(10,'Assembly'),
-(11,'.NET'),
-(12,'BASH scripting'),
-(13,'BATCH Scripting'),
-(14,'MATLAB Scripting'),
-(15,'Python'),
-(16,'JavaScript'),
-(17,'PHP'),
-(18,'SQL'),
-(19,'Mongo');
 
 /*Table structure for table `question_table` */
 
@@ -92,9 +74,11 @@ CREATE TABLE `social_id` (
 DROP TABLE IF EXISTS `sports`;
 
 CREATE TABLE `sports` (
-  `s_id` int(11) NOT NULL AUTO_INCREMENT,
+  `s_id` int(11) DEFAULT NULL,
   `s_name` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`s_id`)
+  `proficiency` int(1) DEFAULT NULL,
+  KEY `s_id` (`s_id`),
+  CONSTRAINT `sports_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `usr` (`usr_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `sports` */
