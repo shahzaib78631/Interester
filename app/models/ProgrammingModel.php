@@ -44,7 +44,13 @@ class ProgrammingModel {
     }
 
     public function getLanguages(){
-        $sql = 'SELECT * FROM langs LEFT JOIN languages ON (`name` = `p_name`)';
+        $sql = 'SELECT name,logo, (SELECT proficiency FROM languages WHERE p_name = name AND u_id = ?) as proficiency FROM langs ';
+        $query = Db::queryAll($sql, array($_SESSION['id']));
+        return $query;
+    }
+
+    public function getLanguagesCards(){
+        $sql = 'SELECT name,logo, (SELECT COUNT(p_name) FROM languages WHERE p_name = name) as `total_students` FROM langs ';
         $query = Db::queryAll($sql, array());
         return $query;
     }

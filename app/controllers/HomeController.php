@@ -6,6 +6,10 @@ class HomeController extends Controller
     {
         $this->head['title'] = 'Home';
         
+        $programmingManager = new ProgrammingModel;
+
+        $this->data['langs'] = $programmingManager->getLanguagesCards();
+
         $this->view = 'home';
     }
 }
