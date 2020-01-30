@@ -16,6 +16,32 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`filter-web` /*!40100 DEFAULT CHARACTER 
 
 USE `filter-web`;
 
+/*Table structure for table `languages` */
+
+DROP TABLE IF EXISTS `languages`;
+
+CREATE TABLE `languages` (
+  `p_id` int(11) DEFAULT NULL,
+  `p_name` varchar(20) DEFAULT NULL,
+  `proficiency` int(1) DEFAULT NULL,
+  KEY `p_id` (`p_id`),
+  CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `usr` (`usr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `languages` */
+
+/*Table structure for table `question_table` */
+
+DROP TABLE IF EXISTS `question_table`;
+
+CREATE TABLE `question_table` (
+  `question_id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` text,
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `question_table` */
+
 /*Table structure for table `roles` */
 
 DROP TABLE IF EXISTS `roles`;
@@ -43,12 +69,29 @@ CREATE TABLE `social_id` (
 
 /*Data for the table `social_id` */
 
+/*Table structure for table `sports` */
+
+DROP TABLE IF EXISTS `sports`;
+
+CREATE TABLE `sports` (
+  `s_id` int(11) DEFAULT NULL,
+  `s_name` varchar(20) DEFAULT NULL,
+  `proficiency` int(1) DEFAULT NULL,
+  KEY `s_id` (`s_id`),
+  CONSTRAINT `sports_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `usr` (`usr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `sports` */
+
 /*Table structure for table `usr` */
 
 DROP TABLE IF EXISTS `usr`;
 
 CREATE TABLE `usr` (
   `usr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(10) DEFAULT NULL,
+  `last_name` varchar(10) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
   `rollnumber` varchar(8) NOT NULL,
   `pass` varchar(20) NOT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -72,6 +115,21 @@ CREATE TABLE `usr_access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `usr_access` */
+
+/*Table structure for table `usr_ans_table` */
+
+DROP TABLE IF EXISTS `usr_ans_table`;
+
+CREATE TABLE `usr_ans_table` (
+  `usr_id` int(11) DEFAULT NULL,
+  `question_id` int(11) DEFAULT NULL,
+  KEY `usr_id` (`usr_id`),
+  KEY `question_id` (`question_id`),
+  CONSTRAINT `usr_ans_table_ibfk_1` FOREIGN KEY (`usr_id`) REFERENCES `usr` (`usr_id`),
+  CONSTRAINT `usr_ans_table_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `question_table` (`question_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `usr_ans_table` */
 
 /*Table structure for table `usr_lang` */
 
