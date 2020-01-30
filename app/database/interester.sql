@@ -16,6 +16,31 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`interester` /*!40100 DEFAULT CHARACTER 
 
 USE `interester`;
 
+
+/*Table structure for table `usr` */
+
+DROP TABLE IF EXISTS `usr`;
+
+CREATE TABLE `usr` (
+  `usr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(10) DEFAULT NULL,
+  `last_name` varchar(10) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `rollnumber` varchar(8) NOT NULL,
+  `pass` varchar(20) NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `image` longblob,
+  PRIMARY KEY (`usr_id`),
+  UNIQUE KEY `rollnumber` (`rollnumber`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `usr` */
+
+insert  into `usr`(`usr_id`,`first_name`,`last_name`,`email`,`rollnumber`,`pass`,`created_at`,`image`) values 
+(1,'Shahzaib','Ali','shahzaib78631@gmail.com','F16SW53','pakistan','2020-01-28 20:12:42',NULL),
+(2,'Waqar','Lasan','adil.cn85@gmail.com','F16SW58','12345','2020-01-29 11:57:51',NULL);
+
+
 /*Table structure for table `langs` */
 
 DROP TABLE IF EXISTS `langs`;
@@ -94,29 +119,6 @@ CREATE TABLE `sports` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `sports` */
-
-/*Table structure for table `usr` */
-
-DROP TABLE IF EXISTS `usr`;
-
-CREATE TABLE `usr` (
-  `usr_id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(10) DEFAULT NULL,
-  `last_name` varchar(10) DEFAULT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  `rollnumber` varchar(8) NOT NULL,
-  `pass` varchar(20) NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `image` longblob,
-  PRIMARY KEY (`usr_id`),
-  UNIQUE KEY `rollnumber` (`rollnumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
-/*Data for the table `usr` */
-
-insert  into `usr`(`usr_id`,`first_name`,`last_name`,`email`,`rollnumber`,`pass`,`created_at`,`image`) values 
-(1,'Shahzaib','Ali','shahzaib78631@gmail.com','F16SW53','pakistan','2020-01-28 20:12:42',NULL),
-(2,'Waqar','Lasan','adil.cn85@gmail.com','F16SW58','12345','2020-01-29 11:57:51',NULL);
 
 /*Table structure for table `usr_access` */
 

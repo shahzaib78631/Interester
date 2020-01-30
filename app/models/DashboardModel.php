@@ -9,7 +9,7 @@ class DashboardModel {
      */
     private $insert = '
                     INSERT INTO languages
-                    (`u_id`, `p_name`, `proficiency`)
+                    (`u_id`, `name`, `proficiency`)
                     VALUES( ? , ?, ?)';
     /**
      * Query for selecting language from database
@@ -23,7 +23,7 @@ class DashboardModel {
      *
      * @var string
      */
-    private $update = 'UPDATE languages SET proficiency = ? WHERE u_id = ? AND p_name = ?';
+    private $update = 'UPDATE languages SET proficiency = ? WHERE u_id = ? AND name = ?';
 
 
     public function getUserData($user_id){
@@ -63,6 +63,24 @@ class DashboardModel {
         Db::query($query , array($first_name, $last_name, $user_id));
         unset($_SESSION['username']);
         $_SESSION['username'] = $first_name . ' ' . $last_name;
+    }
+
+    public function saveImage($user_id)
+    {
+        $check = getimagesize($_FILES["image"]["tmname"]);
+        if($check !== false){
+            $image = $_FILES['image']['tmname'];
+            $imgContent = addslashes(file_get_contents($image));
+            $query = "UPDATE usr SET `image` = ? WHERE usr_id = ?";
+            
+            $result = Db::query($query , array($imgContent,$user_id));
+
+            if($result > 0)
+                return Dialogs::success('Profile image saved');
+        }
+        else {
+            return Dialogs::error('Some problem occured during saving your profile');
+        }
     }
 }
 

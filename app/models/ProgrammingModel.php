@@ -9,16 +9,16 @@ class ProgrammingModel {
      */
     private $insert = '
                     INSERT INTO languages
-                    (`u_id`, `p_name`, `proficiency`)
+                    (`u_id`, `name`, `proficiency`)
                     VALUES( ? , ?, ?)';
     /**
      * Query for selecting language from database
      *
      * @var string
      */
-    private $select = 'SELECT * FROM languages WHERE u_id = ? AND p_name = ?';
+    private $select = 'SELECT * FROM languages WHERE u_id = ? AND `name` = ?';
 
-    private $update = 'UPDATE languages SET proficiency = ? WHERE u_id = ? AND p_name = ?';
+    private $update = 'UPDATE languages SET proficiency = ? WHERE u_id = ? AND `name` = ?';
 
     /**
      * Function for registering user
@@ -44,13 +44,13 @@ class ProgrammingModel {
     }
 
     public function getLanguages(){
-        $sql = 'SELECT name,logo, (SELECT proficiency FROM languages WHERE p_name = name AND u_id = ?) as proficiency FROM langs ';
+        $sql = 'SELECT `langs.name` as `name`,logo, (SELECT proficiency FROM languages WHERE `name` = `langs.name` AND u_id = ?) as proficiency FROM langs ';
         $query = Db::queryAll($sql, array($_SESSION['id']));
         return $query;
     }
 
     public function getLanguagesCards(){
-        $sql = 'SELECT name,logo, (SELECT COUNT(p_name) FROM languages WHERE p_name = name) as `total_students` FROM langs ';
+        $sql = 'SELECT `langs.name` as `name`,logo, (SELECT COUNT(name) FROM languages WHERE name = `langs.name`) as `total_students` FROM langs ';
         $query = Db::queryAll($sql, array());
         return $query;
     }

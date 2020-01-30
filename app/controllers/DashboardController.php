@@ -10,9 +10,13 @@ class DashboardController extends Controller
 
             $dashboardManager = new DashboardModel;
 
+            if(isset($_POST['submit_image']))
+                $this->data['alerts'] = $dashboardManager->saveImage($_SESSION['id']);
+
             if(isset($_POST['submit'])):
 
                 if(!empty($_POST['first_name']) && !empty($_POST['last_name'])):
+                    
                     $user_id = $_SESSION['id'];
                     $first_name = $_POST['first_name'];
                     $last_name = $_POST['last_name'];
@@ -27,9 +31,8 @@ class DashboardController extends Controller
                 endif;
 
             endif;
-
+            
             $this->data['profile'] = $dashboardManager->getUserData($_SESSION['id']);
-
             $this->view = 'dashboard';
         else:
             $this->redirect('login');

@@ -22,7 +22,7 @@
         <div class="row vh-100">
 
           <div class="col-2" style="background: #5c6775;">
-            <?php include('include/sidebar.html'); ?>
+            <?php include('include/sidebar.html');?>
           </div>
 
           <div class="col" style="margin-top: 5%;">
@@ -31,23 +31,21 @@
               <div class="row mt-10">
                 <div class="col-sm-3">
                   <!--left col-->
-
                   <div class="text-center">
-                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail"
+                    <img src="<?= $profile['image'] ?>" class="avatar img-circle img-thumbnail"
                       alt="avatar">
-                    <form class="md-form">
+                    <form class="md-form" action="dashboard" method="POST" enctype="multipart/form-data">
                       <div class="file-field">
                         <div class="btn btn-primary btn-sm float-left">
                           <span>Choose file</span>
-                          <input type="file" name="profile_img" id="profile_img">
+                          <input type="file" name="image" id="image">
                         </div>
                         <div class="file-path-wrapper">
                           <input class="file-path validate" type="text" placeholder="Upload your file">
                         </div>
                       </div>
-                    </form>
-                    
-                    <button type="button" class="btn btn-mdb-color" style="width: 100%;">Save Image</button>
+                    <button type="submit" class="btn btn-mdb-color" style="width: 100%;" name="submit_image">Save Image</button>
+                  </form>
                   </div>
                   </hr><br>
 

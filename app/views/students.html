@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <?php include('include/head.html'); ?>
+</head>
+
+<body>
+
+  <?php include('include/navbar.html'); ?>
+
+  <!--Main Layout-->
+  <main>
+
+    <div class="container my-4 ">
+
+      <div class="row">
+        <table class="table" id="studentsTable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Proficiency</th>
+                <th scope="col">Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+                <?php
+                    if (is_array($students)) {
+                        $sr = 0;
+                        foreach ($students as $student) : ?>
+                        <tr>
+                            <td><?= ++$sr; ?></td>
+                            <td><?= $student['image'] ?></td>
+                            <td><?= $student['first_name'] . ' ' .  $student['last_name'] ?></td>
+                            <td><?= $student['proficiency']?></td>
+                            <td></td>
+                        </tr>
+                        <?php endif; 
+                    } 
+                ?>
+            </tbody>
+        </table>
+      </div>
+  </main>
+
+  <?php include('include/scripts.html'); ?>
+</body>
+
+</html>
