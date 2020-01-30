@@ -33,5 +33,8 @@ CREATE TABLE usr_sports (usr_id INT, FOREIGN KEY (usr_id) REFERENCES usr(usr_id)
 
 #Queries for question and answers.
 CREATE TABLE question_table (question_id INT AUTO_INCREMENT, PRIMARY KEY (question_id), question TEXT);
-CREATE TABLE usr_ans_table (usr_id INT, FOREIGN KEY (usr_id) REFERENCES usr (usr_id), question_id INT, FOREIGN KEY (question_id) REFERENCES question_table(question_id), answer_id INT);
+CREATE TABLE usr_ans_table (usr_id INT, FOREIGN KEY (usr_id) REFERENCES usr (usr_id), question_id INT, FOREIGN KEY (question_id) REFERENCES question_table(question_id));
+CREATE TABLE languages (p_id INT, PRIMARY KEY (p_id), p_name VARCHAR(20));
+CREATE TABLE sports (s_id INT, PRIMARY KEY (s_id), s_name VARCHAR (20));
+
 ```
