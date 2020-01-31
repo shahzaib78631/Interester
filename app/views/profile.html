@@ -21,12 +21,8 @@
       <div class="container-fluid vh-100">
         <div class="row vh-100">
 
-          <div class="col-2" style="background: #5c6775;">
-            <?php include('include/sidebar.html');?>
-          </div>
-
           <div class="col" style="margin-top: 5%;">
-            <?=$alerts ?>
+
             <div class="container bootstrap snippet">
               <div class="row mt-10">
                 <div class="col-sm-3">
@@ -34,18 +30,6 @@
                   <div class="text-center">
                     <img src="<?= $profile['image'] ?>" class="avatar img-circle img-thumbnail"
                       alt="avatar">
-                    <form class="md-form" action="dashboard" method="POST" enctype="multipart/form-data">
-                      <div class="file-field">
-                        <div class="btn btn-primary btn-sm float-left">
-                          <span>Choose file</span>
-                          <input type="file" name="image" id="image">
-                        </div>
-                        <div class="file-path-wrapper">
-                          <input class="file-path validate" type="text" placeholder="Upload your file">
-                        </div>
-                      </div>
-                    <button type="submit" class="btn btn-mdb-color" style="width: 100%;" name="submit_image">Save Image</button>
-                  </form>
                   </div>
                   </hr><br>
 
@@ -63,7 +47,7 @@
                         </label>
                         <input type="text" class="form-control" name="first_name" id="first_name"
                           placeholder="first name" title="enter your first name if any."
-                          value="<?=$profile['first_name']?>" required>
+                          value="<?=$profile['first_name']?>" required disabled>
                       </div>
                     </div>
                     <div class="form-group">
@@ -73,7 +57,7 @@
                           <h4>Last name</h4>
                         </label>
                         <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name"
-                          title="enter your last name if any." value="<?=$profile['last_name']?>" required>
+                          title="enter your last name if any." value="<?=$profile['last_name']?>" required disabled>
                       </div>
                     </div>
 
@@ -105,7 +89,7 @@
                         </label>
                         <input type="text" class="form-control" name="facebook" id="facebook"
                           placeholder="enter facebook profile link" title="enter your facebook profile link"
-                          value="<?=$profile['fb']?>">
+                          value="<?=$profile['fb']?>" readonly>
                       </div>
                     </div>
 
@@ -116,7 +100,7 @@
                         </label>
                         <input type="text" class="form-control" name="linkedin" id="linkedin"
                           placeholder="enter LinkedIn profile link" title="enter your LinkedIn profile link"
-                          value="<?=$profile['linked_in']?>">
+                          value="<?=$profile['linked_in']?>" readonly>
                       </div>
                     </div>
 
@@ -127,15 +111,7 @@
                         </label>
                         <input type="text" class="form-control" name="github" id="github"
                           placeholder="enter GitHub profile link" title="enter your GitHub profile link"
-                          value="<?=$profile['github']?>">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <div class="col-xs-12">
-                        <br>
-                        <button class="btn btn-lg btn-success" type="submit" name="submit"><i
-                            class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                          value="<?=$profile['github']?>" readonly>
                       </div>
                     </div>
                   </form>

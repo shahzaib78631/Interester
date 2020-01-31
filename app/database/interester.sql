@@ -52,7 +52,7 @@ INSERT INTO `langs` (`id`, `name`, `logo`) VALUES
 --
 
 CREATE TABLE `languages` (
-  `p_id` int(11) DEFAULT NULL,
+  `u_id` int(11) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `proficiency` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -88,7 +88,7 @@ CREATE TABLE `social_id` (
 --
 
 CREATE TABLE `sports` (
-  `s_id` int(11) DEFAULT NULL,
+  `u_id` int(11) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `proficiency` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -176,7 +176,7 @@ ALTER TABLE `langs`
 -- Indexes for table `languages`
 --
 ALTER TABLE `languages`
-  ADD KEY `p_id` (`p_id`);
+  ADD KEY `u_id` (`u_id`);
 
 --
 -- Indexes for table `roles`
@@ -194,7 +194,7 @@ ALTER TABLE `social_id`
 -- Indexes for table `sports`
 --
 ALTER TABLE `sports`
-  ADD KEY `s_id` (`s_id`);
+  ADD KEY `u_id` (`u_id`);
 
 --
 -- Indexes for table `usr`
@@ -252,7 +252,7 @@ ALTER TABLE `usr`
 -- Constraints for table `languages`
 --
 ALTER TABLE `languages`
-  ADD CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `usr` (`usr_id`);
+  ADD CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `usr` (`usr_id`);
 
 --
 -- Constraints for table `social_id`
@@ -264,7 +264,7 @@ ALTER TABLE `social_id`
 -- Constraints for table `sports`
 --
 ALTER TABLE `sports`
-  ADD CONSTRAINT `sports_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `usr` (`usr_id`);
+  ADD CONSTRAINT `sports_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `usr` (`usr_id`);
 
 --
 -- Constraints for table `usr_access`

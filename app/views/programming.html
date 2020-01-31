@@ -43,9 +43,12 @@
                       <div class="text-xs font-weight-bold text-center text-primary text-uppercase mb-1"><?=$lang['name']?></div>
                       <hr>
                       <div class="col mr-2">
-                        <a href="programming?lang=<?=$lang['name']?>&value=0" class="btn btn-primary" style="width: 100%;">Beginner</a>
-                        <a href="programming?lang=<?=$lang['name']?>&value=1" class="btn btn-secondary" style="width: 100%;">journeyman</a>
-                        <a href="programming?lang=<?=$lang['name']?>&value=2" class="btn btn-success" style="width: 100%;">Expert</a>
+                        <a href="programming?lang=<?=$lang['name']?>&value=1" class="btn btn-primary" style="width: 100%;">
+                          <?php if($lang['proficiency'] == 1): ?> &#10003;Beginner <?php else: ?> Beginner <?php endif; ?></a>
+                        <a href="programming?lang=<?=$lang['name']?>&value=2" class="btn btn-secondary" style="width: 100%;">
+                          <?php if($lang['proficiency'] == 2): ?> &#10003;Journeyman <?php else: ?> Journeyman <?php endif; ?></a>
+                        <a href="programming?lang=<?=$lang['name']?>&value=3" class="btn btn-success" style="width: 100%;">
+                          <?php if($lang['proficiency'] == 3): ?> &#10003;Expert <?php else: ?> Expert <?php endif; ?></a>
                       </div>
                     </div>
                   </div>
