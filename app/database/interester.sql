@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 31, 2020 at 02:58 AM
+-- Generation Time: Jan 31, 2020 at 05:55 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -52,18 +52,10 @@ INSERT INTO `langs` (`id`, `name`, `logo`) VALUES
 --
 
 CREATE TABLE `languages` (
-  `u_id` int(11) DEFAULT NULL,
-  `p_name` varchar(20) DEFAULT NULL,
+  `p_id` int(11) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
   `proficiency` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `languages`
---
-
-INSERT INTO `languages` (`u_id`, `p_name`, `proficiency`) VALUES
-(2, 'html', 0),
-(1, 'html', 2);
 
 -- --------------------------------------------------------
 
@@ -97,7 +89,7 @@ CREATE TABLE `social_id` (
 
 CREATE TABLE `sports` (
   `s_id` int(11) DEFAULT NULL,
-  `s_name` varchar(20) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
   `proficiency` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -184,7 +176,7 @@ ALTER TABLE `langs`
 -- Indexes for table `languages`
 --
 ALTER TABLE `languages`
-  ADD KEY `p_id` (`u_id`);
+  ADD KEY `p_id` (`p_id`);
 
 --
 -- Indexes for table `roles`
@@ -260,7 +252,7 @@ ALTER TABLE `usr`
 -- Constraints for table `languages`
 --
 ALTER TABLE `languages`
-  ADD CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `usr` (`usr_id`);
+  ADD CONSTRAINT `languages_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `usr` (`usr_id`);
 
 --
 -- Constraints for table `social_id`
