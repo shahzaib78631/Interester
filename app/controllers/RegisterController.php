@@ -15,9 +15,10 @@ class RegisterController extends Controller
             $roll_no = $_POST['roll-no'];
             $email = $_POST['email'];
             $pass = $_POST['password'];
+            $batch = $_POST['batches'];
             
             if(!empty(filter_var($email, FILTER_VALIDATE_EMAIL))):
-                $this->data['alert'] = $registerModel->registerUser($first_name, $last_name, $roll_no, $email, $pass);
+                $this->data['alert'] = $registerModel->registerUser($first_name, $last_name, $roll_no, $email, $pass, $batch);
 
             else:
                 $this->data['alert'] = Dialogs::error("Email Not Valid");;

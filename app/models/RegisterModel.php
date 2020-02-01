@@ -9,18 +9,18 @@ class RegisterModel {
      */
     private $insert = '
                     INSERT INTO usr
-                    (`first_name`, `last_name`, `rollnumber`, `email`, `pass`, `created_at`)
-                    VALUES( ? , ?, ? , ?, ? , NOW())';
+                    (`first_name`, `last_name`, `rollnumber`, `email`, `pass`, `batch`, `created_at`)
+                    VALUES( ? , ?, ? , ?, ? , ? , NOW())';
     /**
      * Function for registering user
      * in database
      *
      * @return void
      */
-    public function registerUser($first_name, $last_name, $roll_no, $email , $password){
+    public function registerUser($first_name, $last_name, $roll_no, $email , $password, $batch){
         // check if user exist
         try {
-            $user = Db::query($this->insert, array($first_name, $last_name, $roll_no, $email, $password));
+            $user = Db::query($this->insert, array($first_name, $last_name, $roll_no, $email, $password, $batch));
             
             if($user > 0):
                 return Dialogs::success("Successfully Registered");

@@ -33,6 +33,7 @@ class DashboardController extends Controller
             endif;
             
             $this->data['profile'] = $dashboardManager->getUserData($_SESSION['id']);
+            
             $this->view = 'dashboard';
         else:
             $this->redirect('login');

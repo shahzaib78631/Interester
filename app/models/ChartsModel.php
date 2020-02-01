@@ -9,8 +9,7 @@
 <body>
 
 	<div id="piechart" style="width: 620px; height: 420px; display: inline-block;"></div>
-	<div class="inline" id="comboChart" style="width: 620px; height: 420px; display: inline-block;
-"></div>
+	<div class="inline" id="comboChart" style="width: 620px; height: 420px; display: inline-block;"></div>
 
 </body>
 
