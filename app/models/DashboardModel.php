@@ -40,8 +40,6 @@ class DashboardModel {
         $query = 'SELECT usr_id FROM social_id WHERE usr_id = ?';
         $result = Db::query($query , array($user_id));
 
-        print_r($result);
-
         if($result > 0){
             $query = 'UPDATE social_id SET `fb` = ? , `linked_in` = ? , `github` = ? WHERE `usr_id` = ?';
             $result = Db::query($query , array($facebook, $linkedin, $github, $user_id));
@@ -69,7 +67,11 @@ class DashboardModel {
 
     public function saveImage($user_id)
     {
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if($_FILES["image"]["tmp_name"] != null)
+            $check = getimagesize($_FILES["image"]["tmp_name"]);
+        else 
+            return Dialogs::error("please select an image file");
+
         if($check !== false){
             $image = $_FILES['image']['tmp_name'];
             $imgContent = addslashes(file_get_contents($image));
