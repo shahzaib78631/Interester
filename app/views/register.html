@@ -13,7 +13,7 @@
   <main>
 
     <div class="container">
-
+      
       <!--Section: Blog v.4-->
       <section class="section mt-5 pb-3 wow fadeIn">
         
@@ -29,6 +29,7 @@
                  echo $alert;
               
                 endif;?>
+               
                 <form class="user" action="register" method="POST">
                   <div class="form-group">
                     <input type="text" class="form-control form-control-user" name="first-name" id="first-name" aria-describedby="emailHelp" placeholder="Enter First Name">
@@ -44,6 +45,16 @@
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <select class="browser-default custom-select dropdown-ins" name="batches" id="batches">
+                      <option selected>Select Your Batch</option>
+                      <option value="F16SW">F16SW</option>
+                      <option value="17SW">17SW</option>
+                      <option value="18SW">18SW</option>
+                      <option value="19SW">19SW</option>
+
+                    </select>
                   </div>
                   <button class="btn btn-primary btn-user btn-block" name="register" id="register"> 
                     Register

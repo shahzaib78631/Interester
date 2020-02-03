@@ -1,5 +1,7 @@
 <?php 
 
+define ('SITE_ROOT', realpath(dirname(__FILE__)));
+
 class DashboardModel {
 
     /**
@@ -16,7 +18,7 @@ class DashboardModel {
      *
      * @var string
      */
-    private $select = 'SELECT * FROM usr as u INNER JOIN social_id as s ON (u.usr_id = s.usr_id) WHERE u.usr_id = ? ';
+    private $select = 'SELECT * FROM usr as u LEFT JOIN social_id as s ON (u.usr_id = s.usr_id) WHERE u.usr_id = ? ';
 
     /**
      * Query for updating
@@ -67,16 +69,38 @@ class DashboardModel {
 
     public function saveImage($user_id)
     {
-        $check = getimagesize($_FILES["image"]["tmname"]);
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
         if($check !== false){
-            $image = $_FILES['image']['tmname'];
+            $image = $_FILES['image']['tmp_name'];
             $imgContent = addslashes(file_get_contents($image));
-            $query = "UPDATE usr SET `image` = ? WHERE usr_id = ?";
-            
-            $result = Db::query($query , array($imgContent,$user_id));
 
-            if($result > 0)
-                return Dialogs::success('Profile image saved');
+            $target_dir = SITE_ROOT."/images/";
+            $random = bin2hex(random_bytes(7));
+            $target_file = $target_dir . $random .basename($_FILES["image"]["name"]);
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+                return Dialogs::error('Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
+            }
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                
+
+                $img_name = $random .basename($_FILES["image"]["name"]);
+                
+                $save = 'UPDATE usr SET `image` = ?  WHERE `usr_id` = ?';
+
+
+
+                Db::query($save , array($img_name , $_SESSION['id']));
+
+                return Dialogs::success("The file ". basename( $_FILES["image"]["name"]). " has been uploaded.");
+                
+            } else {
+                return Dialogs::error("Sorry, there was an error uploading your file.");
+            }
+
         }
         else {
             return Dialogs::error('Some problem occured during saving your profile');

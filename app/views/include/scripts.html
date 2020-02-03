@@ -12,9 +12,22 @@
 <script type="text/javascript" src="../public/js/addons/datatables.min.js"></script>
 
 <script>
+// Material Select Initialization
+$(document).ready(function() {
+$('.mdb-select').materialSelect();
+});
+
 new WOW().init();
 
-$('#studentsTable').DataTable();
+$('#studentsTable').DataTable({
+  "columns": [
+    null,
+    { "width": "20%" },
+    null,
+    null,
+    null
+  ]
+});
 
 </script>
 
