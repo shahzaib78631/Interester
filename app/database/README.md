@@ -8,7 +8,7 @@ Database in this folder is not updated with these queries.
 
 ```sql
 CREATE TABLE usr (usr_id INT AUTO_INCREMENT, PRIMARY KEY (usr_id),first_name VARCHAR(10), last_name VARCHAR(10), email VARCHAR(30), rollnumber VARCHAR(8) NOT NULL UNIQUE, pass VARCHAR(20) NOT NULL, 
-created_at DATETIME DEFAULT CURRENT_TIMESTAMP, image LONGBLOB
+created_at DATETIME DEFAULT CURRENT_TIMESTAMP, image LONGBLOB, batch VARCHAR(10)
 );
 
 CREATE TABLE roles (role_id INT, PRIMARY KEY (role_id), role VARCHAR(10)
