@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 31, 2020 at 05:55 AM
+-- Generation Time: Feb 04, 2020 at 05:43 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -57,6 +57,21 @@ CREATE TABLE `languages` (
   `proficiency` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `languages`
+--
+
+INSERT INTO `languages` (`u_id`, `name`, `proficiency`) VALUES
+(2, 'html', 1),
+(2, 'java', 1),
+(2, 'php', 2),
+(2, 'python', 2),
+(5, 'html', 1),
+(5, 'java', 2),
+(5, 'php', 3),
+(5, 'python', 1),
+(5, 'angular', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -76,10 +91,17 @@ CREATE TABLE `roles` (
 
 CREATE TABLE `social_id` (
   `usr_id` int(11) DEFAULT NULL,
-  `fb` varchar(30) DEFAULT NULL,
-  `linked_in` varchar(30) DEFAULT NULL,
-  `github` varchar(30) DEFAULT NULL
+  `fb` text,
+  `linked_in` text,
+  `github` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `social_id`
+--
+
+INSERT INTO `social_id` (`usr_id`, `fb`, `linked_in`, `github`) VALUES
+(2, '', 'https://www.linkedin.com/in/waqar-arain/', 'https://github.com/Waqar-Arain/');
 
 -- --------------------------------------------------------
 
@@ -107,16 +129,17 @@ CREATE TABLE `usr` (
   `rollnumber` varchar(8) NOT NULL,
   `pass` varchar(20) NOT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `image` longblob
+  `image` longblob,
+  `batch` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usr`
 --
 
-INSERT INTO `usr` (`usr_id`, `first_name`, `last_name`, `email`, `rollnumber`, `pass`, `created_at`, `image`) VALUES
-(1, 'Shahzaib', 'Ali', 'shahzaib78631@gmail.com', 'F16SW53', 'pakistan', '2020-01-28 20:12:42', NULL),
-(2, 'Waqar', 'Lasan', 'adil.cn85@gmail.com', 'F16SW58', '12345', '2020-01-29 11:57:51', NULL);
+INSERT INTO `usr` (`usr_id`, `first_name`, `last_name`, `email`, `rollnumber`, `pass`, `created_at`, `image`, `batch`) VALUES
+(2, 'Waqar', 'Arain', 'adil.cn85@gmail.com', 'F16SW58', '12345', '2020-01-29 11:57:51', 0x61346137323666663536663937304d61646172612e6a7067, 'F16SW'),
+(5, 'Shahzaib', 'Ali', 'shahzaib78631@gmail.com', 'F16SW53', '123', '2020-02-03 20:01:53', 0x663737306238613164623330346666363938633735386538666230626176617461722e706e67, 'F16SW');
 
 -- --------------------------------------------------------
 
@@ -242,7 +265,7 @@ ALTER TABLE `langs`
 -- AUTO_INCREMENT for table `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

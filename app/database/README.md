@@ -19,8 +19,7 @@ role_id INT, FOREIGN KEY (role_id) REFERENCES roles (role_id)
 );
 
 CREATE TABLE social_id (usr_id INT, FOREIGN KEY (usr_id) REFERENCES usr(usr_id),
-fb VARCHAR(30), linked_in VARCHAR(30), github VARCHAR(30)
-);
+fb TEXT, linked_in TEXT, github TEXT);
 
 CREATE TABLE usr_lang (usr_id INT, FOREIGN KEY (usr_id) REFERENCES usr(usr_id),
 lang VARCHAR(20)
