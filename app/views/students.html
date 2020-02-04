@@ -44,21 +44,21 @@
                             <td><?= ++$sr; ?></td>
                             <td>
                                 <img src="../app/models/images/<?php echo ($student['image'] != null ? $student['image'] : 'avatar.png') ;?>" class="avatar rounded-circle"
-                                alt="avatar" width="30%" height="40px"></td>
+                                alt="avatar" style="width: 50px; height: 50px;"></td>
                             <td><?= $student['first_name'] . ' ' .  $student['last_name'] ?></td>
                             <td class="text-center">
                                 <?php 
                                 if($student['proficiency'] == 1)
-                                    echo '<h5><span class="badge badge-primary">Beginner</span></h5>';
+                                    echo '<h5><span class="badge badge-text-white" style=" background-color: #8bc34a">Beginner</span></h5>';
                                 else if ($student['proficiency'] == 2)
-                                    echo '<h5><span class="badge badge-secondary">Journeyman</span></h5>';
+                                    echo '<h5><span class="badge badge-text-white" style=" background-color: #00bcd4">Journeyman</span></h5>';
                                 else
-                                    echo '<h5><span class="badge badge-success">Expert</span></h5>';
+                                    echo '<h5><span class="badge badge-text-white" style=" background-color: #ea5c68">Expert</span></h5>';
                                 
                             ?>
                             </td>
                             <td class="text-center">
-                                <a href="profile?id=<?=$student['id']?>" class="btn btn-sm btn-success ">Profile</a></td>
+                                <a href="profile?id=<?=$student['id']?>" class="btn btn-sm btn-cyan">Profile</a></td>
                         </tr>
                         <?php endforeach;
                         } ?>

@@ -97,7 +97,7 @@ class DashboardModel {
 
                 Db::query($save , array($img_name , $_SESSION['id']));
 
-                return Dialogs::success("The file ". basename( $_FILES["image"]["name"]). " has been uploaded.");
+                return Dialogs::success("Profile picture has been updated!");
                 
             } else {
                 return Dialogs::error("Sorry, there was an error uploading your file.");

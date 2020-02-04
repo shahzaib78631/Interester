@@ -18,6 +18,11 @@ class RegisterModel {
      * @return void
      */
     public function registerUser($first_name, $last_name, $roll_no, $email , $password, $batch){
+        $query = "select first_name from usr where email = ?";
+        $user = Db::query($query, array($email));
+        if ($user > 0):
+            return Dialogs::error("User already exists!");
+        endif;
         // check if user exist
         try {
             $user = Db::query($this->insert, array($first_name, $last_name, $roll_no, $email, $password, $batch));
@@ -25,7 +30,7 @@ class RegisterModel {
             if($user > 0):
                 return Dialogs::success("Successfully Registered");
             else:
-                return Dialogs::success("Some problem occured during registeration");
+                return Dialogs::error("Some problem occured during registeration");
             endif;
 
         } catch (PDOException $e) {
