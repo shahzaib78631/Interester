@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php include('include/head.html'); ?>
+</head>
+
+<body>
+
+    <?php include('include/navbar.html'); ?>
+
+    <!--Main Layout-->
+    <main>
+        <!-- Languages -->
+      <section id="languages" class="pb-5" style="margin-bottom: 20px; margin-top: 20px;">
+        <div class="container">
+            <canvas id="horizontalBar"></canvas>
+          <h5 class="section-title h1">Programming Languages</h5>
+          <div class="row">
+            <?php if (is_array($langs)) {
+                foreach ($langs as $lang) : ?>
+                <!-- Programming Language -->
+                      <a href="students?section=languages&card=<?=$lang['name']?>" class="col-xl-3 col-md-6 mb-4">
+                          <div class="card shadow h-100 py-2">
+                              <div class="card-body">
+                                  <div class="row no-gutters align-items-center">
+                                      <div class="col mr-2">
+                                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                              <?=$lang['name']?>
+                                          </div>
+                                          <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$lang['total_students']?>
+                                          </div>
+                                      </div>
+                                      <div class="col">
+                                          <?=$lang['logo'];?>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </a>
+                      <!-- ./Programming Language -->
+                      <?php endforeach; }?>
+            
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <?php include('include/scripts.html'); ?>
+
+    
+
+<script>
+    new Chart(document.getElementById("horizontalBar"), {
+    "type": "horizontalBar",
+    "data": {
+    "labels": [<?php foreach ($lang_info as $lang) echo  "'" .$lang['name'] . "',"; ?>],
+    "datasets": [{
+    "label": "Programming Languages",
+    "data": [<?php foreach ($lang_info as $lang) echo $lang['count'] . ","; ?>],
+    "fill": false,
+    "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)",
+    "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)",
+    "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"
+    ],
+    "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)",
+    "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"
+    ],
+    "borderWidth": 1
+    }]
+    },
+    "options": {
+    "scales": {
+    "xAxes": [{
+    "ticks": {
+    "beginAtZero": true
+    }
+    }]
+    }
+    }
+    });
+    
+    </script>
+</body>
+
+</html>
+

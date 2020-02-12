@@ -31,6 +31,26 @@
                     <img src="../app/models/images/<?php echo ($profile['image'] != null ? $profile['image'] : 'avatar.png') ;?>" class="avatar img-circle img-thumbnail"
                       alt="avatar">
                   </div>
+                  <div class="card-body text-center">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a class="social-icon text-xs-center" target="_blank" href="<?=$profile['linked_in']?>">
+                        <i class="fa fa-linkedin"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a class="social-icon text-xs-center" target="_blank" href="<?=$profile['github']?>">
+                        <i class="fa fa-github"></i>
+                      </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                      <a class="social-icon text-xs-center" target="_blank" href="<?=$profile['fb']?>">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
                   </hr><br>
 
                 </div>
@@ -79,39 +99,6 @@
                         <input disabled type="text" class="form-control" name="rollno" id="rollno"
                           placeholder="enter your roll no" title="enter your roll no"
                           value="<?=$profile['rollnumber']?>">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <div class="col-xs-6">
-                        <label for="phone">
-                          <h4>Facebook</h4>
-                        </label>
-                        <input type="text" class="form-control" name="facebook" id="facebook"
-                          placeholder="enter facebook profile link" title="enter your facebook profile link"
-                          value="<?=$profile['fb']?>" readonly>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <div class="col-xs-6">
-                        <label for="phone">
-                          <h4>LinkedIn</h4>
-                        </label>
-                        <input type="text" class="form-control" name="linkedin" id="linkedin"
-                          placeholder="enter LinkedIn profile link" title="enter your LinkedIn profile link"
-                          value="<?=$profile['linked_in']?>" readonly>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <div class="col-xs-6">
-                        <label for="phone">
-                          <h4>GitHub</h4>
-                        </label>
-                        <input type="text" class="form-control" name="github" id="github"
-                          placeholder="enter GitHub profile link" title="enter your GitHub profile link"
-                          value="<?=$profile['github']?>" readonly>
                       </div>
                     </div>
                   </form>

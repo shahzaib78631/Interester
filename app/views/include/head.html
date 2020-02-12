@@ -6,6 +6,8 @@
 <title><?= $this->head['title'] ?></title>
 <!--  Font Awesome  -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- Bootstrap core CSS -->
 <link href="../public/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
@@ -17,6 +19,37 @@
 <style>
 html, body {
   height: 100%;
+}
+.fa {
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* LinkedIn */
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+/* Twitter */
+.fa-github {
+  background: #55ACEE;
+  color: white;
 }
 .navbar 
     {
@@ -31,4 +64,23 @@ html, body {
 .dropdown .dropdown-menu .dropdown-item:hover {
 	background-color: #3e3e3e;
 }
+
+
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#team .card {
+    border: none;
+    background: #ffffff;
+}
+
+
 </style>

@@ -12,31 +12,114 @@
   <!--Main Layout-->
   <main>
 
-    <div class="container my-4 ">
+    <!-- Languages -->
+    <section id="languages" class="pb-5" style="margin-bottom: 20px; margin-top: 20px;">
+      <div class="container">
+        <h5 class="section-title h1">Programming Languages</h5>
+        <div class="row">
+         
 
-      <div class="row">
-
-        <?php if (is_array($langs)) {
-          foreach ($langs as $lang) : ?>
-        <a href="students?section=languages&card=<?=$lang['name']?>" class="col-xl-3 col-md-6 mb-4">
-          <div class="card shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$lang['name']?>
+          <?php if (is_array($langs)) {
+              foreach ($langs as $lang) : ?>
+          <!-- Programming Language -->
+          <a href="students?section=languages&card=<?=$lang['name']?>" class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      <?=$lang['name']?>
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$lang['total_students']?>
+                    </div>
                   </div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$lang['total_students']?></div>
+                  <div class="col">
+                    <?=$lang['logo'];?>
+                  </div>
                 </div>
-                <div class="col">
-                  <?=$lang['logo'];?>
+              </div>
+            </div>
+          </a>
+          <!-- ./Programming Language -->
+          <?php endforeach; }?>
+        </div>
+      </div>
+    </section>
+    <!-- Favorite Teachers -->
+    <section id="fav_teachers" class="pb-5">
+      <div class="container">
+        <h5 class="section-title h1">Favorite Teachers</h5>
+        <div class="row">
+          <!-- Favorite Teachers -->
+          <?php foreach ($teachers as $teacher) : ?>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="image-flip">
+              <div class="mainflip">
+                <div class="frontside">
+                  <div class="card">
+                    <div class="card-body text-center">
+                      <p><img class="avatar rounded-circle" src="../app/models/images/avatar.png" alt="card image"
+                          width="150px" height="150px"></p>
+                      <h4 class="card-title"><?= $teacher['name'] ?></h4>
+                      <p class="card-text"><b>Likes:</b> <?= $teacher['likes'] ?></p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </a>
-        <?php endforeach; 
-        }?>
+          <?php endforeach; ?>
+          <!-- ./Team member -->
+        </div>
       </div>
+    </section>
+    <!-- Team -->
+    <section id="team" class="pb-5">
+      <div class="container">
+        <h5 class="section-title h1">OUR TEAM</h5>
+        <div class="row">
+          <!-- Team member -->
+          <?php foreach ($team as $member) : ?>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="image-flip">
+              <div class="mainflip">
+                <div class="frontside">
+                  <div class="card">
+                    <div class="card-body text-center">
+                      <p><img class="avatar rounded-circle"
+                          src="../app/models/images/<?php echo ($member['image'] != null ? $member['image'] : 'avatar.png');?>"
+                          alt="card image" width="150px" height="150px"></p>
+                      <h4 class="card-title"><?=$member['first_name'] . " " . $member['last_name']?></h4>
+                      <p class="card-text"><?= $member['email'] ?></p>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a class="social-icon text-xs-center" target="_blank" href="<?=$member['linked_in']?>">
+                            <i class="fa fa-linkedin"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a class="social-icon text-xs-center" target="_blank" href="<?=$member['github']?>">
+                            <i class="fa fa-github"></i>
+                          </a>
+                        </li>
+
+                        <li class="list-inline-item">
+                          <a class="social-icon text-xs-center" target="_blank" href="<?=$member['fb']?>">
+                            <i class="fa fa-facebook"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+          <!-- ./Team member -->
+        </div>
+      </div>
+    </section>
   </main>
 
   <?php include('include/scripts.html'); ?>

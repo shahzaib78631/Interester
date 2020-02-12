@@ -34,6 +34,15 @@ class Routes
             case 'Programming':
                 return true;
             break;
+            case 'Languages':
+                return true;
+            break;
+            case 'Sports':
+                return true;
+            break;
+            case 'Allsports':
+                return true;
+            break;
             case 'Users':
                 return false;
             break;

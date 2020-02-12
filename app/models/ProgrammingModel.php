@@ -54,6 +54,18 @@ class ProgrammingModel {
         $query = Db::queryAll($sql, array());
         return $query;
     }
+
+    public function getTopLangs(){
+        $sql = 'SELECT langs.name as `name`,logo, (SELECT COUNT(name) FROM languages WHERE name = langs.name) as `total_students` FROM langs ORDER BY total_students DESC LIMIT 4 ';
+        $query = Db::queryAll($sql, array());
+        return $query;
+    }
+
+    public function getLanguagesInfo(){
+        $sql = 'SELECT langs.name as `name`, (SELECT COUNT(name) FROM languages WHERE name = langs.name) as `count` FROM langs';
+        $query = Db::queryAll($sql, array());
+        return $query;
+    }
 }
 
 

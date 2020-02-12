@@ -2,7 +2,8 @@
 SQLyog Professional v12.09 (64 bit)
 MySQL - 10.4.8-MariaDB : Database - interester
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -177,7 +178,7 @@ CREATE TABLE `teachers_question` (
 
 /*Data for the table `teachers_question` */
 
-insert  into `teachers_question`(`question_number`,`question`) values (1,'My Favourite Teacher'),(2,'What is so special about your favourite teacher'),(3,'I think teachers needs to bring improvement in');
+insert  into `teachers_question`(`question_number`,`question`) values (1,'Select Your Favourite Teacher'),(2,'What is so special about your favourite teacher'),(3,'I think teachers needs to bring improvement in');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
