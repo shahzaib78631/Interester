@@ -113,6 +113,45 @@
           </div>
         </div>
       </div>
+
+      <!-- Languages -->
+    <section id="languages" class="pb-5" style="margin-top: -200px;">
+      <div class="container">
+        <h5 class="section-title h1">Programming Languages</h5>
+        <div class="row">
+          <?php if (is_array($langs)) {
+              foreach ($langs as $lang) : ?>
+          <!-- Programming Language -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      <?=$lang['name']?>
+                    </div>
+                    <td class="text-center">
+                      <?php 
+                      if($lang['proficiency'] == 1)
+                          echo '<h5><span class="badge badge-text-white" style=" background-color: #8bc34a">Beginner</span></h5>';
+                      else if ($lang['proficiency'] == 2)
+                          echo '<h5><span class="badge badge-text-white" style=" background-color: #00bcd4">Journeyman</span></h5>';
+                      else
+                          echo '<h5><span class="badge badge-text-white" style=" background-color: #ea5c68">Expert</span></h5>';
+                      ?>
+                  </div>
+                  <div class="col">
+                    <?=$lang['logo'];?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ./Programming Language -->
+          <?php endforeach; }?>
+        </div>
+      </div>
+    </section>
   </main>
 
   <?php include('include/scripts.html'); ?>

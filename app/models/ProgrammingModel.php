@@ -66,6 +66,11 @@ class ProgrammingModel {
         $query = Db::queryAll($sql, array());
         return $query;
     }
+
+    public function getUserLanguagesCards($user_id){
+        $sql = 'SELECT langs.name as `name`,logo, proficiency FROM langs INNER JOIN languages ON languages.name = langs.name AND u_id = ? ';
+        return Db::queryAll($sql, array($user_id));
+    }
 }
 
 
