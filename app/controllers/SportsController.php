@@ -7,16 +7,21 @@ class SportsController extends Controller
         $this->head['title'] = 'Sports';
         $this->data['alerts'] = "";
         
-        $sportsManager = new SportsModel;
+        if($_SESSION['logged'] == true):
 
-        if(isset($_POST['submit'])):
-            $sport_id = $_POST['fav_sport'];
-            $this->data['alerts'] = $sportsManager->saveSport($_SESSION['id'], $sport_id);
+            $sportsManager = new SportsModel;
+
+            if(isset($_POST['submit'])):
+                $sport_id = $_POST['fav_sport'];
+                $this->data['alerts'] = $sportsManager->saveSport($_SESSION['id'], $sport_id);
+            endif;
+
+            $this->data['sports'] = $sportsManager->getSports();
+            $this->view = 'sports';
+
+        else:
+            $this->redirect('login');
         endif;
-
-        $this->data['sports'] = $sportsManager->getSports();
-
-        $this->view = 'sports';
     }
 }
 
